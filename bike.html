@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rentals and Bike Rental</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman';
+            background-color: #e1dcdc;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 48px;
+            margin-top: 20px;
+        }
+
+        #gallery {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .smallimg {
+            border: 5px solid red;
+            width: 70px;
+            height: 70px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .smallimg:hover {
+            border: 8px solid rgb(160, 172, 29);
+        }
+
+        #bigimg {
+            max-width: 80%;
+            border: 0;
+            margin-top: 50px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        ul li {
+            display: inline-block;
+        }
+
+        .mynavbar {
+            background-color: #333;
+        }
+
+        .mynavbar a.navbar-brand img {
+            padding: 10px;
+            width: 80px;
+        }
+
+        .navbar-toggler {
+            background-color: white;
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+        }
+
+        #gallery-buttons {
+            text-align: center;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(160, 172, 29);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mynavbar navbar navbar-expand-md fixed-top">
+        <a href="" class="navbar-brand"><img src="/Images/logo/logo1.png" alt="" width="80px"></a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="menu">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link active">About us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link active">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link active">Contact us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <h1>Car Rentals and Bike Rental</h1>
+
+    <div id="big">
+        <img id="bigimg" src="/Images/bikes_cars/pulsar.webp" alt="">
+    </div>
+
+    <div id="gallery">
+        <ul>
+            <li><img src="/Images/bikes_cars/pulsar.webp" class="smallimg" alt="1"></li>
+            <li><img src="/Images/bikes_cars/pulsar1.webp" class="smallimg" alt="2"></li>
+            <li><img src="/Images/bikes_cars/pulsar2.webp" class="smallimg" alt="3"></li>
+            <li><img src="/Images/bikes_cars/pulsar3.webp" class="smallimg" alt="4"></li>
+            <li><img src="/Images/bikes_cars/pulsar4.webp" class="smallimg" alt="5"></li>
+        </ul>
+    </div>
+
+    <div id="gallery-buttons">
+        <a href="book.html"><button style="width: 100vh; ">Book now</button></a>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#gallery ul li img').click(function () {
+                var bigimgsrc = $(this).attr('src');
+                $('#bigimg').attr('src', bigimgsrc);
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .icon_container {
+            display: flex;
+        }
+
+        .icon_subcontainer {
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .vehicles {
+            display: flex;
+        }
+
+        .vehicles > div {
+            display: none;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .vehicles > div > .ilabel {
+            margin-top: 10px;
+        }
+
+        .vehicles > div > h3 {
+            margin: 10px 0;
+        }
+
+        /* Additional CSS styles as needed */
+    </style>
+</head>
+<body>
+    <div class="icon_container">
+        <div class="icon_subcontainer car">
+            <img src="./Images/icons/car.png" alt="car" class="icons car">
+            <div class="ilabel"><label for="car">Car</label></div>
+        </div>
+        <div class="icon_subcontainer bike">
+            <img src="./Images/icons/bike.png" alt="bike" class="icons bike">
+            <div class="ilabel"><label for="bike">Bike</label></div>
+        </div>
+        <div class="icon_subcontainer sbike">
+            <img src="./Images/icons/bike2.png" alt="sbike" class="icons sbike">
+            <div class="ilabel"><label for="sbike">Super bike</label></div>
+        </div>
+        <div class="icon_subcontainer scoter">
+            <img src="./Images/icons/scoter.png" alt="scoter" class="icons scoter">
+            <div class="ilabel"><label for="scooters">Scooters</label></div>
+        </div>
+        <div class="icon_subcontainer ev">
+            <img src="./Images/icons/ev.png" alt="ev" class="icons ev">
+            <div class="ilabel"><label for="ev">EV</label></div>
+        </div>
+    </div>
+
+    <div class="vehicles">
+        <div class="bikes_container">
+            <!-- Bike elements here -->
+        </div>
+        <div class="cars_container">
+            <!-- Car elements here -->
+        </div>
+        <div class="sbikes_container">
+            <!-- Super Bike elements here -->
+        </div>
+        <div class="scoters_container">
+            <!-- Scooter elements here -->
+        </div>
+        <div class="evs_container">
+            <!-- EV elements here -->
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Initially hide all vehicle containers except bikes_container
+            $(".vehicles > div").not(".bikes_container").hide();
+
+            // Handle click events on icon_subcontainer elements
+            $(".icon_subcontainer").click(function () {
+                // Hide all vehicle containers
+                $(".vehicles > div").hide();
+
+                // Determine which container to display based on the clicked icon
+                var iconClass = $(this).find("img").attr("class");
+                switch (iconClass) {
+                    case "car":
+                        $(".cars_container").show();
+                        break;
+                    case "bike":
+                        $(".bikes_container").show();
+                        break;
+                    case "sbike":
+                        $(".sbikes_container").show();
+                        break;
+                    case "scoter":
+                        $(".scoters_container").show();
+                        break;
+                    case "ev":
+                        $(".evs_container").show();
+                        break;
+                    default:
+                        $(".bikes_container").show(); // Default to bikes_container
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

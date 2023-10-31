@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Car Rentals</title>
+</head>
+
+<body>
+
+    <div class="mynavbar navbar navbar-expand-md fixed-top ">
+        <a href="" class="navbar-brand"><img src="/Images/logo/logo1.png" style="padding: 10px;" alt=""
+                width="80px"></a>
+        <button class="navbar-toggler " data-bs-toggle="collapse" data-bs-target="#menu">
+            <sup class="navbar-toggler-icon"></sup>
+        </button>
+        <div class="navbar-collapse collapse " id="menu">
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a href="" class="nav-link  active"><span style="color: white;">Home</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link active"><span style="color: white;">About us</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link active"><span style="color: white;">Login</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link active"><span style="color: white;">Contact us</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="sliding"><img name="slide" width="100%" height="100%"></div>
+
+    <div class="firstpage">
+
+
+
+        <div class="booknow">
+
+            <select name="City" id="city">
+                <option value="hyderabad">hyderabad</option>
+                <option value="hyderabad">Kukatpally</option>
+                <option value="hyderabad">vizag</option>
+                <option value="hyderabad">Guntur</option>
+            </select>
+
+            <input type="date" name="start" id="start" class="date">
+            <input type="date" name="end" id="end" class="date">
+            <a href="book.html"><button>Book now</button></a>
+        </div>
+    </div>
+    </div>
+    <div class="main_body">
+
+        <div class="icons">
+            <a href="allvehicles.html" id="all">
+                <div class="icon">
+                    <img class="iconimg" src="./Images/icons/all1.png" alt="Icon 0">
+                    <span class="ilabel">ALL</span>
+                </div>
+            </a>
+
+            <div class="icon" onclick="showVehicles([0, 1, 2, 3])">
+                <img class="iconimg" src="./Images/icons/bike21.png" alt="Icon 1">
+                <span class="ilabel">Super bike</span>
+
+            </div>
+            <div class="icon" onclick="showVehicles([4, 5, 6, 7])">
+                <img class="iconimg" src="./Images/icons/bike1.png" alt="Icon 2">
+                <span class="ilabel">Bike</span>
+
+            </div>
+            <div class="icon" onclick="showVehicles([8, 9, 10, 11])">
+                <img class="iconimg" src="/Images/icons/car1.png" alt="Icon 3">
+                <span class="ilabel">Car</span>
+
+            </div>
+            <div class="icon" onclick="showVehicles([12, 13, 14, 15])">
+                <img class="iconimg" src="/Images/icons/scoter1.png" alt="Icon 4">
+                <span class="ilabel">Scooter</span>
+
+            </div>
+            <div class="icon" onclick="showVehicles([16, 17, 18, 19])">
+                <img class="iconimg" src="/Images/icons/ev1.png" alt="Icon 5">
+                <span class="ilabel">Ev's</span>
+
+            </div>
+        </div>
+        <div class="vehicles">
+            <a href="bike.html"><div class="vehicle" id="vehicle0"
+                style="background-image: url('/Images/bikes_cars/Suzuki-GSXR1000.webp');">
+                Vehicle 1
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div></a>
+            <div class="vehicle" id="vehicle1" style="background-image: url('/Images/bikes_cars/BMW-S1000.webp');">
+                Vehicle 2
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle2" style="background-image: url('/Images/bikes_cars/Ducati-1299.webp');">
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle3" style="background-image: url('/Images/bikes_cars/apriliarsv4.webp');">
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <a href="bike.html"><div class="vehicle" id="vehicle4" style="background-image: url('/Images/bikes_cars/pulsar1.webp');">
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div></a>
+            <div class="vehicle" id="vehicle5" style="background-image: url('/Images/bikes_cars/rider.webp');">
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle6" style="background-image: url('/Images/bikes_cars/royal.webp');">
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle7" style="background-image: url('/Images/bikes_cars/hunter.webp');">
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle8" style="background-image: url('/Images/bikes_cars/swift_1.webp');">
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+
+            <div class="vehicle" id="vehicle9" style="background-image: url('/Images/bikes_cars/harrier_1.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle10" style="background-image: url('/Images/bikes_cars/hycross_1.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle11" style="background-image: url('/Images/bikes_cars/crysta_1.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle12" style="background-image: url('/Images/bikes_cars/ntorq-1.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle13" style="background-image: url('/Images/bikes_cars/dio1.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle14" style="background-image: url('/Images/bikes_cars/ray-1.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle15" style="background-image: url('/Images/bikes_cars/activa-6g_1.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle16" style="background-image: url('/Images/bikes_cars/s1-pro1.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle17" style="background-image: url('/Images/bikes_cars/okinawa.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle18" style="background-image: url('/Images/bikes_cars/450x.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+            <div class="vehicle" id="vehicle19" style="background-image: url('/Images/bikes_cars/s1-pro1.webp');">
+
+                <h1 class="bname">bike name </h1>
+                <p class="price">499/- per day</p>
+            </div>
+        </div>
+        <div class="welcome">
+
+            <h1 class="white"><sup class="spangrey">_____</sup><sup class="spanred">_</sup> Specials <sup
+                    class="spanred">_</sup><sup class="spangrey">_____</sup> </h1>
+            <p class="white">Welcome to Auto car</p>
+        </div>
+        <div class="specials">
+            <div class="offer" style="background-image: url('/Images/specials/bmw4.png');">
+                <h1 style="color:rgb(208, 29, 29); font-size: 24px;"><b>BMW X Series 2021</b></h1>
+                <span style="color:white;">Avalable For</span>
+                <span style="color:rgb(208, 29, 29); "><b>Limited Period</b></span>
+                <div class="redbox" style="margin-top: 250px;">
+                    <h1 style="color:white;"><b>10%Apr</b></h1>
+                </div>
+            </div>
+            <div class="offer" style="background-image: url('/Images/specials/bmw.png');">
+                <h1 style="margin-top: 300px; color:white;"><b>BMW X6 Serie</b>s</h1>
+                <p style="color:rgb(208, 29, 29);"><b>4000rs</b><span style="color:white;">/day</span></p>
+            </div>
+
+            <div class="offer" style="background-image: url('/Images/specials/bmw3.png');">
+                <h1 style="color:rgb(208, 29, 29); font-size: 24px;"><b>BMW 18 Series </b></h1>
+                <span style="color:white;">Avalable For</span>
+                <span style="color:rgb(208, 29, 29); "><b>Limited Period</b></span>
+
+            </div>
+
+            <div class="offer" style="background-image: url('/Images/specials/bmw2.png');">
+
+                <h1 style="margin-top: 300px; color:white;"><b>BMW X6 Serie</b>s</h1>
+                <p style="color:rgb(208, 29, 29);"><b>4000rs</b><span style="color:white;">/day</span></p>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="welcome">
+
+        <h1 class="white"><sup class="spangrey">_____</sup><sup class="spanred">_</sup> Why Choose us <sup
+                class="spanred">_</sup><sup class="spangrey">_____</sup> </h1>
+        <p class="white">Welcome to Auto car</p>
+    </div>
+    <div class="why">
+        <div class="logo">
+            <img src="/Images/trust/1.png" class="logoimg" alt=""><br><br>
+            <h2 style="color: white; font-size: 16px;"><b>FINANCING EASY</b></h2>
+            <p style="color: white; font-size: 12px;">Contrary to popular belief. Lorem Ipsum is not simply random text.
+                It has roots in a piece of</p>
+        </div>
+        <div class="logo">
+            <img src="/Images/trust/2.png" class="logoimg" alt=""><br><br>
+            <h2 style="color: rgb(214, 46, 46); font-size: 16px;"><b>Lorem ipsum</b></h2>
+            <p style="color: white; font-size: 12px;">Contrary to popular belief. Lorem Ipsum is not simply random text.
+                It has roots in a piece of</p>
+
+        </div>
+        <div class="logo">
+            <img src="/Images/trust/3.png" class="logoimg" alt=""><br><br>
+            <h2 style="color: white; font-size: 16px;"><b> MADE EASY</b></h2>
+            <p style="color: white; font-size: 12px;">Contrary to popular belief. Lorem Ipsum is not simply random text.
+                It has roots in a piece of</p>
+        </div>
+        <div class="logo">
+            <img src="/Images/trust/4.png" class="logoimg" alt=""><br><br>
+            <h2 style="color: rgb(232, 30, 30); font-size: 16px;"><b>FINANCING </b></h2>
+            <p style="color: white; font-size: 12px;">Contrary to popular belief. Lorem Ipsum is not simply random text.
+                It has roots in a piece of</p>
+        </div>
+
+
+
+
+    </div>
+
+    <div class="about-us-section">
+        <div class="employee">
+            <img src="/Images/creators/nagasai.jpg" alt="">
+            <div class="name">naga sai</div>
+            <div class="title">Student</div>
+        </div>
+
+        <div class="employee">
+            <img src="/Images/creators/nagasai.jpg" alt="">
+            <div class="name">naga sai</div>
+            <div class="title">Student</div>
+        </div>
+
+        <div class="employee">
+            <img src="/Images/creators/nagasai.jpg" alt="">
+            <div class="name">naga sai</div>
+            <div class="title">Student</div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br>
+
+    <footer>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>About Us</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitationem ullamco laboris nisi
+                        ut aliquip ex
+                        ea commodo consequat.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fa fa-map-marker"></i> 123 Main Street, Anytown, CA 12345</li>
+                        <li><i class="fa fa-phone"></i> 1-234-567-890</li>
+                        <li><i class="fa fa-envelope"></i> info@example.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>Social Media</h3>
+                    <ul class="social-media">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showVehicles(indexArray) {
+            var vehicles = document.querySelectorAll('.vehicle');
+            vehicles.forEach(function (vehicle, i) {
+                if (indexArray.includes(i)) {
+                    vehicle.style.display = 'block';
+                } else {
+                    vehicle.style.display = 'none';
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            showVehicles([4, 5, 6, 7]);
+        });
+
+    </script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>

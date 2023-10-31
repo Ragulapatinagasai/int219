@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car and Bike Rental Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: right;
+            margin-top: 20px;
+            margin-right: 10%;
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            width: 400px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            float: right; /* Float the form to the left side */
+            margin-right: 50px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            flex: 1;
+            width: 50%;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        select,
+        textarea,
+        input[type="number"],
+        input[type="date"],
+        input[type="time"] {
+            flex: 2;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 100%;
+        }
+
+        select {
+            height: 40px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Car and Bike Rental Form</h2>
+    <form action="process_rental.php" method="POST">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="vehicle">Select a Vehicle:</label>
+            <select id="vehicle" name="vehicle" required>
+                <option value="Car">Car</option>
+                <option value="Bike">Bike</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="model">Select a Model:</label>
+            <select id="model" name="model" required>
+                <!-- Models will be populated based on the selected vehicle type -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required>
+            <input type="time" id="start_time" name="start_time" required>
+        </div>
+
+        <div class="form-group">
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required>
+            <input type="time" id="end_time" name="end_time" required>
+        </div>
+
+        <div class="form-group">
+            <label for="duration">Duration:</label>
+            <input type="text" id="duration" name="duration" required readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" required readonly>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function updateModels() {
+            const vehicleType = $("#vehicle").val();
+            const modelSelect = $("#model");
+            modelSelect.empty();
+
+            // Reset start and end date fields
+            $("#start_date").val("");
+            $("#start_time").val("");
+            $("#end_date").val("");
+            $("#end_time").val("");
+
+            if (vehicleType === "Car") {
+                const carModels = ["Model A", "Model B", "Model C"];
+                $.each(carModels, function(index, model) {
+                    modelSelect.append(new Option(model, model));
+                });
+            } else if (vehicleType === "Bike") {
+                const bikeModels = ["Model X", "Model Y", "Model Z"];
+                $.each(bikeModels, function(index, model) {
+                    modelSelect.append(new Option(model, model));
+                });
+            }
+
+            // Reset the price field
+            $("#price").val("");
+        }
+
+        // Function to update models based on the selected vehicle type
+        function updateModels() {
+            const vehicleType = $("#vehicle").val();
+            const modelSelect = $("#model");
+            modelSelect.empty();
+            
+            if (vehicleType === "Car") {
+                const carModels = ["Model A", "Model B", "Model C"];
+                $.each(carModels, function(index, model) {
+                    modelSelect.append(new Option(model, model));
+                });
+            } else if (vehicleType === "Bike") {
+                const bikeModels = ["Model X", "Model Y", "Model Z"];
+                $.each(bikeModels, function(index, model) {
+                    modelSelect.append(new Option(model, model));
+                });
+            }
+            // Update the price when the vehicle type changes
+            calculateTotal();
+        }
+
+        // Function to calculate the total duration and price
+        function calculateTotal() {
+            const startDate = new Date($("#start_date").val() + "T" + $("#start_time").val());
+            const endDate = new Date($("#end_date").val() + "T" + $("#end_time").val());
+            const vehicleType = $("#vehicle").val();
+            const model = $("#model").val();
+            const carDayRate = 2000;
+            const carHourRate = 100;
+            const bikeDayRate = 1000;
+            const bikeHourRate = 50;
+
+            if (!isNaN(startDate) && !isNaN(endDate) && startDate <= endDate) {
+                const timeDiff = endDate - startDate;
+                const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const hoursDiff = (timeDiff / (1000 * 60 * 60)) % 24;
+                const minutes = (hoursDiff % 1) * 60;
+
+                const totalDays = daysDiff + (hoursDiff >= 24 ? 1 : 0);
+                const totalHours = hoursDiff >= 24 ? hoursDiff % 24 : hoursDiff;
+
+                const durationText = `${totalDays} days and ${Math.floor(totalHours)} hours ${minutes.toFixed(0)} minutes`;
+                $("#duration").val(durationText);
+
+                let totalPrice;
+                if (vehicleType === "Car") {
+                    if (model === "Model A") {
+                        totalPrice = (totalDays * carDayRate) + (totalHours * carHourRate);
+                    } else if (model === "Model B") {
+                        totalPrice = (totalDays * (carDayRate + 500)) + (totalHours * (carHourRate + 50));
+                    } else if (model === "Model C") {
+                        totalPrice = (totalDays * (carDayRate + 1000)) + (totalHours * (carHourRate + 100));
+                    }
+                } else if (vehicleType === "Bike") {
+                    if (model === "Model X") {
+                        totalPrice = (totalDays * bikeDayRate) + (totalHours * bikeHourRate);
+                    } else if (model === "Model Y") {
+                        totalPrice = (totalDays * (bikeDayRate + 200)) + (totalHours * (bikeHourRate + 20));
+                    } else if (model === "Model Z") {
+                        totalPrice = (totalDays * (bikeDayRate + 400)) + (totalHours * (bikeHourRate + 40));
+                    }
+                }
+                $("#price").val(`₹ ${totalPrice.toFixed(2)}`);
+            } else {
+                $("#duration").val('');
+                $("#price").val('');
+            }
+        }
+
+        // Handle changes in the vehicle type
+        $("#vehicle").change(updateModels);
+        // Handle changes in date and time fields
+        $("#start_date, #start_time, #end_date, #end_time, #model").change(calculateTotal);
+
+        // Initialize models and calculate total
+        updateModels();
+    </script>
+</body>
+</html>
